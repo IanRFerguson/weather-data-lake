@@ -1,0 +1,8 @@
+*.env
+output_example.json
+
+**/*.pyc
+.venv/
+
+iceberg_catalog/main
+iceberg_catalog/*.db

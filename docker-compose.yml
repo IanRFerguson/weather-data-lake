@@ -1,0 +1,12 @@
+services:
+  iceberg-demo:
+    build:
+      context: .
+      dockerfile: devops/Dockerfile
+    env_file:
+      - dev.env
+    
+    # NOTE - This attaches the Iceberg catalog in the
+    # container to the local filesystem for persistence.
+    volumes:
+      - ./iceberg_catalog:/app/iceberg_catalog
