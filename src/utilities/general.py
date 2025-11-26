@@ -1,11 +1,15 @@
 import logging
+import os
 
-iceberg_logger = logging.getLogger("iceberg_logger")
-iceberg_logger.setLevel(logging.INFO)
+logger = logging.getLogger("iceberg_logger")
+logger.setLevel(logging.INFO)
 
-formatter = logging.Formatter("%(levelname)s - %(message)s")
+if os.environ.get("DEBUG", "false").lower() == "true":
+    logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter("%(levelname)s %(message)s")
 
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(formatter)
 
-iceberg_logger.addHandler(console_handler)
+logger.addHandler(console_handler)

@@ -5,6 +5,8 @@ services:
       dockerfile: devops/Dockerfile
     env_file:
       - dev.env
+    environment:
+      - DEBUG=true
     
     # NOTE - This attaches the Iceberg catalog in the
     # container to the local filesystem for persistence.
